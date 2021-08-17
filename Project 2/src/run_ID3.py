@@ -1,4 +1,4 @@
-from MetricsForID3 import train, get_learning_curve_points, plot_learning_curve, classifier 
+from MetricsForID3 import necessary_elements_for_education, get_learning_curve_points, plot_learning_curve, classifier
 from ID3 import ID3
 from functions import read_available_words, read_reviews, get_reviews_vectors
 import os 
@@ -47,7 +47,7 @@ def run_ID3():
             dev_reviews = dev_positive_reviews + dev_negative_reviews
 
             vector, train_data, neg_length, pos_length, vocabulary = \
-            train(available_words, train_positive_reviews, train_negative_reviews, train_reviews)
+            necessary_elements_for_education(available_words, train_positive_reviews, train_negative_reviews, train_reviews)
 
             dev_vectored_reviews = np.array(get_reviews_vectors(dev_reviews, vocabulary))
 
@@ -91,7 +91,7 @@ def run_ID3():
             train_reviews = train_positive_reviews + train_negative_reviews
 
             vector, train_data, neg_length, pos_length, vocabulary = \
-            train(available_words, train_positive_reviews, train_negative_reviews, train_reviews)
+            necessary_elements_for_education(available_words, train_positive_reviews, train_negative_reviews, train_reviews)
 
             m = 'positive'
             tree = ID3()
