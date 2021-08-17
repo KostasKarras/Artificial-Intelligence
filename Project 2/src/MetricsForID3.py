@@ -3,7 +3,7 @@ from ID3 import ID3
 import numpy as np
 import matplotlib.pyplot as plt
 
-def train(available_words, train_positive_reviews, train_negative_reviews, train_reviews):
+def necessary_elements_for_train(available_words, train_positive_reviews, train_negative_reviews, train_reviews):
     """
     :param available_words: A dictionary (key: index, value: word) with keys representing the unique indexes of the words 
                             and values being the words in the file.
@@ -143,7 +143,7 @@ def get_learning_curve_points(train_negative_reviews, train_positive_reviews, tr
         used_train_reviews = used_train_negative_reviews + used_train_positive_reviews
         
         vector, train_data, neg_length, pos_length, vocabulary = \
-        train(available_words, used_train_positive_reviews, used_train_negative_reviews, used_train_reviews)
+        necessary_elements_for_train(available_words, used_train_positive_reviews, used_train_negative_reviews, used_train_reviews)
         m = 'positive'
         tree = ID3()
         root = tree.insert(vector, train_data, neg_length, pos_length, m, 1)
